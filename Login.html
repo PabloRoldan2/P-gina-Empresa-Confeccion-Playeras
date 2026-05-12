@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textilería GT - Inicio de sesión</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-blue: #001a3d;
+            --light-grey: #e0e0e0;
+            --link-blue: #0000ee;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .login-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Lado Izquierdo con la imagen del bordado */
+        .image-side {
+            flex: 1;
+            background: url('Captura de pantalla 2026-05-12 100626.png') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            padding: 40px;
+        }
+
+        .image-side h1 {
+            color: white;
+            font-size: 3rem;
+            max-width: 400px;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.1;
+        }
+
+        /* Lado Derecho con el formulario */
+        .form-side {
+            width: 450px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 60px;
+            position: relative;
+        }
+
+        .form-side h2 {
+            color: var(--dark-blue);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--light-grey);
+            border: none;
+            border-radius: 25px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .btn-access {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--dark-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .forgot-pass {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            color: var(--link-blue);
+            text-decoration: underline;
+            font-size: 0.9rem;
+        }
+
+        .back-home {
+            position: absolute;
+            bottom: 30px;
+            left: 60px;
+            color: var(--link-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="image-side">
+            <h1>Diseños que nos representan</h1>
+        </div>
+
+        <div class="form-side">
+            <h2>Inicio de sesión</h2>
+            
+            <form action="#">
+                <div class="input-group">
+                    <label>Usuario*</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="input-group" style="position: relative;">
+                    <label>Contraseña*</label>
+                    <input type="password" required>
+                </div>
+
+                <button type="submit" class="btn-access">
+                    <i class="fas fa-sign-in-alt"></i> Acceder
+                </button>
+
+                <a href="#" class="forgot-pass">Olvidé mi contraseña</a>
+            </form>
+
+            <a href="index.html" class="back-home">
+                <i class="fas fa-arrow-left"></i> Volver al Inicio
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
