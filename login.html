@@ -11,16 +11,15 @@
             --light-grey: #e0e0e0;
             --link-blue: #0000ee;
             --error-red: #d32f2f;
-            --pink-placeholder: #ffc0cb; /* El rosado de referencia */
+            --pink-placeholder: #ffc0cb;
         }
 
         body, html { height: 100%; margin: 0; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
         .login-container { display: flex; height: 100vh; width: 100vw; }
 
-        /* Lado Izquierdo: Cuadro rosado para la imagen */
         .image-side {
             flex: 1;
-            background-color: var(--pink-placeholder); /* Área rosada solicitada */
+            background-color: var(--pink-placeholder);
             padding: 40px;
             display: flex;
             align-items: flex-start;
@@ -35,7 +34,6 @@
             line-height: 1.1;
         }
 
-        /* Lado Derecho: Formulario */
         .form-side { 
             width: 450px; 
             background: white; 
@@ -55,7 +53,6 @@
             border: 2px solid transparent; border-radius: 25px; box-sizing: border-box; outline: none; 
         }
 
-        /* Estilo de error */
         .input-group input.error-border { border-color: var(--error-red); background-color: #ffebee; }
 
         #error-message {
@@ -109,12 +106,12 @@
             <form id="loginForm">
                 <div class="input-group">
                     <label>Usuario*</label>
-                    <input type="text" id="userInput" required>
+                    <input type="text" id="userInput" required placeholder="Usuario">
                 </div>
 
                 <div class="input-group">
                     <label>Contraseña*</label>
-                    <input type="password" id="passInput" required>
+                    <input type="password" id="passInput" required placeholder="Contraseña">
                 </div>
 
                 <button type="submit" class="btn-access">
@@ -141,8 +138,8 @@
             const inputs = document.querySelectorAll('input');
 
             if (user === USER_VALIDO && pass === PASS_VALIDA) {
-                alert("¡Bienvenido al sistema!");
-                window.location.href = "index.html"; 
+                // REDIRECCIÓN ACTUALIZADA AL MENÚ PRINCIPAL
+                window.location.href = "menuprincipal.html"; 
             } else {
                 errorMsg.style.display = "block";
                 inputs.forEach(input => input.classList.add('error-border'));
