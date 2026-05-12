@@ -25,10 +25,17 @@
             text-align: center;
         }
 
-        nav a{
+        nav button{
+            background: none;
+            border: none;
             color: white;
-            text-decoration: none;
+            font-size: 16px;
             margin: 0 15px;
+            cursor: pointer;
+        }
+
+        nav button:hover{
+            color: #f1c40f;
         }
 
         section{
@@ -40,6 +47,19 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        button.leer{
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.leer:hover{
+            background-color: #2980b9;
         }
 
         footer{
@@ -55,30 +75,62 @@
 
     <header>
         <h1>Bienvenido a Mi Página</h1>
-        <p>Ejemplo básico en HTML y CSS</p>
+        <p>Ejemplo básico en HTML, CSS y JavaScript</p>
     </header>
 
     <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Servicios</a>
-        <a href="#">Contacto</a>
+        <button onclick="mostrarInicio()">Inicio</button>
+        <button onclick="mostrarServicios()">Servicios</button>
+        <button onclick="mostrarContacto()">Contacto</button>
     </nav>
 
     <section>
         <div class="card">
-            <h2>Sobre Nosotros</h2>
-            <p>
-                Esta es una página web sencilla creada con HTML y CSS.
-                Puedes modificar colores, textos y diseños fácilmente.
+            <h2 id="titulo">Inicio</h2>
+
+            <p id="contenido">
+                Bienvenido a nuestra página web. Aquí encontrarás
+                información sobre nuestros servicios y formas de contacto.
             </p>
 
-            <button>Leer más</button>
+            <button class="leer" onclick="leerMas()">
+                Leer más
+            </button>
         </div>
     </section>
 
     <footer>
         <p>© 2026 Mi Página Web</p>
     </footer>
+
+    <script>
+
+        function mostrarInicio(){
+            document.getElementById("titulo").innerHTML = "Inicio";
+
+            document.getElementById("contenido").innerHTML =
+            "Bienvenido a nuestra página principal. Somos una empresa dedicada al desarrollo de software y diseño web.";
+        }
+
+        function mostrarServicios(){
+            document.getElementById("titulo").innerHTML = "Servicios";
+
+            document.getElementById("contenido").innerHTML =
+            "Ofrecemos desarrollo de páginas web, aplicaciones de escritorio, bases de datos y soporte técnico.";
+        }
+
+        function mostrarContacto(){
+            document.getElementById("titulo").innerHTML = "Contacto";
+
+            document.getElementById("contenido").innerHTML =
+            "Puedes contactarnos al correo ejemplo@gmail.com o al teléfono 5555-5555.";
+        }
+
+        function leerMas(){
+            alert("Gracias por visitar nuestra página. Próximamente tendremos más contenido disponible.");
+        }
+
+    </script>
 
 </body>
 </html>
