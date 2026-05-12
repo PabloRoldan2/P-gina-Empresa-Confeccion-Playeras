@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
+    <title>Inicio</title>
 
     <style>
         body{
@@ -15,27 +15,20 @@
         header{
             background-color: #2c3e50;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 20px;
         }
 
         nav{
             background-color: #34495e;
-            padding: 10px;
             text-align: center;
+            padding: 10px;
         }
 
-        nav button{
-            background: none;
-            border: none;
+        nav a{
             color: white;
-            font-size: 16px;
+            text-decoration: none;
             margin: 0 15px;
-            cursor: pointer;
-        }
-
-        nav button:hover{
-            color: #f1c40f;
         }
 
         section{
@@ -46,20 +39,15 @@
             background-color: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
 
-        button.leer{
-            padding: 10px 15px;
+        button{
+            padding: 10px;
             background-color: #3498db;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-        }
-
-        button.leer:hover{
-            background-color: #2980b9;
         }
 
         footer{
@@ -74,26 +62,24 @@
 <body>
 
     <header>
-        <h1>Bienvenido a Mi Página</h1>
-        <p>Ejemplo básico en HTML, CSS y JavaScript</p>
+        <h1>Mi Página Web</h1>
     </header>
 
     <nav>
-        <button onclick="mostrarInicio()">Inicio</button>
-        <button onclick="mostrarServicios()">Servicios</button>
-        <button onclick="mostrarContacto()">Contacto</button>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
     </nav>
 
     <section>
         <div class="card">
-            <h2 id="titulo">Inicio</h2>
+            <h2>Inicio</h2>
 
-            <p id="contenido">
-                Bienvenido a nuestra página web. Aquí encontrarás
-                información sobre nuestros servicios y formas de contacto.
+            <p>
+                Bienvenido a nuestra página principal.
             </p>
 
-            <button class="leer" onclick="leerMas()">
+            <button onclick="window.location.href='leer_mas.html'">
                 Leer más
             </button>
         </div>
@@ -102,35 +88,6 @@
     <footer>
         <p>© 2026 Mi Página Web</p>
     </footer>
-
-    <script>
-
-        function mostrarInicio(){
-            document.getElementById("titulo").innerHTML = "Inicio";
-
-            document.getElementById("contenido").innerHTML =
-            "Bienvenido a nuestra página principal. Somos una empresa dedicada al desarrollo de software y diseño web.";
-        }
-
-        function mostrarServicios(){
-            document.getElementById("titulo").innerHTML = "Servicios";
-
-            document.getElementById("contenido").innerHTML =
-            "Ofrecemos desarrollo de páginas web, aplicaciones de escritorio, bases de datos y soporte técnico.";
-        }
-
-        function mostrarContacto(){
-            document.getElementById("titulo").innerHTML = "Contacto";
-
-            document.getElementById("contenido").innerHTML =
-            "Puedes contactarnos al correo ejemplo@gmail.com o al teléfono 5555-5555.";
-        }
-
-        function leerMas(){
-            alert("Gracias por visitar nuestra página. Próximamente tendremos más contenido disponible.");
-        }
-
-    </script>
 
 </body>
 </html>
