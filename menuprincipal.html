@@ -18,6 +18,7 @@
         body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-serif; background-color: var(--main-bg); }
         .layout { display: flex; height: 100vh; }
 
+        /* Sidebar */
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
@@ -38,7 +39,7 @@
 
         .sidebar-logo { width: 40px; height: 40px; background-color: var(--pink-placeholder); border-radius: 5px; }
 
-        .menu-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        .menu-list { list-style: none; padding: 0; margin: 0; }
         
         .menu-item {
             padding: 12px 20px;
@@ -53,18 +54,7 @@
         .menu-item:hover { background-color: #f1f5f9; }
         .menu-item.active { background-color: var(--dark-blue); color: white; }
 
-        /* Botón de cerrar sesión */
-        .logout-item {
-            padding: 20px;
-            border-top: 1px solid var(--border-color);
-            color: #d32f2f;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: bold;
-        }
-
+        /* Contenido Principal */
         .main-content { flex: 1; display: flex; flex-direction: column; overflow-y: auto; }
 
         header {
@@ -74,8 +64,58 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
+        /* Menú de Hamburguesa y Dropdown */
+        .menu-hamburguesa-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        #hamburger-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            margin-top: 10px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: var(--dark-blue);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f5f9;
+        }
+
+        .dropdown-content a i {
+            width: 18px;
+            text-align: center;
+        }
+
+        .show { display: block; }
+
+        /* Estructura del Cuerpo */
         .container { padding: 30px; }
 
         .welcome-banner {
@@ -106,7 +146,6 @@
         .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .items-row { display: flex; gap: 15px; }
         .item-placeholder { flex: 1; aspect-ratio: 1; background-color: var(--pink-placeholder); border-radius: 10px; }
-
     </style>
 </head>
 <body>
@@ -128,15 +167,22 @@
                 <a href="#" class="menu-item"><i class="fas fa-industry"></i> Producción</a>
                 <a href="#" class="menu-item"><i class="fas fa-file-invoice"></i> Reportes</a>
             </nav>
-            <a href="Login.html" class="logout-item">
-                <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-            </a>
         </aside>
 
         <main class="main-content">
             <header>
                 <span>Panel de Administración</span>
-                <i class="fas fa-bars" style="font-size: 1.5rem; cursor: pointer;"></i>
+                
+                <div class="menu-hamburguesa-container">
+                    <i class="fas fa-bars" id="hamburger-icon"></i>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#"><i class="fas fa-user-circle"></i> Perfil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Ajustes</a>
+                        <a href="#"><i class="fas fa-clipboard-check"></i> Auditoría</a>
+                        <hr style="margin: 0; border: 0; border-top: 1px solid var(--border-color);">
+                        <a href="index.html" style="color: #d32f2f;"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+                    </div>
+                </div>
             </header>
 
             <div class="container">
@@ -181,10 +227,7 @@
 
                 <div class="sections-row">
                     <div class="card-panel">
-                        <div class="panel-header">
-                            <h3 style="margin:0;">Últimos diseños</h3>
-                            <a href="#" style="color: var(--dark-blue); font-size: 0.9rem;">Ver todos →</a>
-                        </div>
+                        <div class="panel-header"><h3>Últimos diseños</h3></div>
                         <div class="items-row">
                             <div class="item-placeholder"></div>
                             <div class="item-placeholder"></div>
@@ -192,10 +235,7 @@
                         </div>
                     </div>
                     <div class="card-panel">
-                        <div class="panel-header">
-                            <h3 style="margin:0;">Últimos productos</h3>
-                            <a href="#" style="color: var(--dark-blue); font-size: 0.9rem;">Ver todos →</a>
-                        </div>
+                        <div class="panel-header"><h3>Últimos productos</h3></div>
                         <div class="items-row">
                             <div class="item-placeholder"></div>
                             <div class="item-placeholder"></div>
@@ -207,5 +247,22 @@
         </main>
     </div>
 
+    <script>
+        const icon = document.getElementById('hamburger-icon');
+        const dropdown = document.getElementById('myDropdown');
+
+        icon.addEventListener('click', function(e) {
+            dropdown.classList.toggle('show');
+            e.stopPropagation();
+        });
+
+        window.onclick = function(event) {
+            if (!event.target.matches('#hamburger-icon')) {
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
 </body>
 </html>
