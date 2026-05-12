@@ -11,21 +11,41 @@
             --light-grey: #e0e0e0;
             --link-blue: #0000ee;
             --error-red: #d32f2f;
+            --pink-placeholder: #ffc0cb; /* El rosado de referencia */
         }
 
         body, html { height: 100%; margin: 0; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
         .login-container { display: flex; height: 100vh; width: 100vw; }
 
+        /* Lado Izquierdo: Cuadro rosado para la imagen */
         .image-side {
             flex: 1;
-            background: url('Captura de pantalla 2026-05-12 100626.png') no-repeat center center;
-            background-size: cover;
+            background-color: var(--pink-placeholder); /* Área rosada solicitada */
             padding: 40px;
+            display: flex;
+            align-items: flex-start;
         }
 
-        .image-side h1 { color: white; font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .image-side h1 { 
+            color: white; 
+            font-size: 3rem; 
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1); 
+            max-width: 400px;
+            line-height: 1.1;
+        }
 
-        .form-side { width: 450px; background: white; display: flex; flex-direction: column; justify-content: center; padding: 0 60px; position: relative; }
+        /* Lado Derecho: Formulario */
+        .form-side { 
+            width: 450px; 
+            background: white; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            padding: 0 60px; 
+            position: relative; 
+        }
+
         .form-side h2 { color: var(--dark-blue); font-size: 2.2rem; text-align: center; margin-bottom: 30px; }
 
         .input-group { margin-bottom: 20px; }
@@ -35,14 +55,14 @@
             border: 2px solid transparent; border-radius: 25px; box-sizing: border-box; outline: none; 
         }
 
-        /* Estilo cuando hay error */
+        /* Estilo de error */
         .input-group input.error-border { border-color: var(--error-red); background-color: #ffebee; }
 
         #error-message {
             color: var(--error-red);
             font-size: 0.85rem;
             margin-bottom: 15px;
-            display: none; /* Oculto por defecto */
+            display: none; 
             text-align: center;
             font-weight: bold;
         }
@@ -53,13 +73,33 @@
             display: flex; align-items: center; justify-content: center; gap: 10px;
         }
 
-        .back-home { position: absolute; bottom: 30px; left: 60px; color: var(--link-blue); text-decoration: none; font-weight: 600; }
+        .forgot-pass {
+            display: block;
+            margin-top: 15px;
+            color: var(--link-blue);
+            text-decoration: underline;
+            font-size: 0.9rem;
+        }
+
+        .back-home { 
+            position: absolute; 
+            bottom: 30px; 
+            left: 60px; 
+            color: var(--link-blue); 
+            text-decoration: none; 
+            font-weight: 600; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
     </style>
 </head>
 <body>
 
     <div class="login-container">
-        <div class="image-side"><h1>Diseños que nos representan</h1></div>
+        <div class="image-side">
+            <h1>Diseños que nos representan</h1>
+        </div>
 
         <div class="form-side">
             <h2>Inicio de sesión</h2>
@@ -80,6 +120,8 @@
                 <button type="submit" class="btn-access">
                     <i class="fas fa-sign-in-alt"></i> Acceder
                 </button>
+
+                <a href="#" class="forgot-pass">Olvidé mi contraseña</a>
             </form>
 
             <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
@@ -87,12 +129,11 @@
     </div>
 
     <script>
-        // Datos de prueba (Simulando una base de datos)
         const USER_VALIDO = "admin";
         const PASS_VALIDA = "1234";
 
         document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que la página se recargue
+            e.preventDefault();
             
             const user = document.getElementById('userInput').value;
             const pass = document.getElementById('passInput').value;
@@ -101,18 +142,14 @@
 
             if (user === USER_VALIDO && pass === PASS_VALIDA) {
                 alert("¡Bienvenido al sistema!");
-                window.location.href = "index.html"; // Redirigir si es correcto
+                window.location.href = "index.html"; 
             } else {
-                // Mostrar error
                 errorMsg.style.display = "block";
                 inputs.forEach(input => input.classList.add('error-border'));
-                
-                // Limpiar campos de contraseña por seguridad
                 document.getElementById('passInput').value = "";
             }
         });
 
-        // Quitar el error cuando el usuario vuelva a escribir
         document.querySelectorAll('input').forEach(input => {
             input.addEventListener('input', () => {
                 document.getElementById('error-message').style.display = "none";
