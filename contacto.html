@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textilería GT - Contacto</title>
+    <style>
+        :root {
+            --azul-oscuro: #001a41;
+            --gris-fondo: #f4f4f4;
+            --gris-input: #e0e0e0;
+            --blanco: #ffffff;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--azul-oscuro);
+            background-color: var(--blanco);
+        }
+
+        /* --- ENCABEZADO --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 4%;
+            border-bottom: 2px solid var(--azul-oscuro);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-container h1 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        .img-bandera {
+            height: 38px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--azul-oscuro);
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        nav a.active {
+            border-bottom: 2px solid var(--azul-oscuro);
+            padding-bottom: 4px;
+        }
+
+        .btn-login {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            padding: 8px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- CONTENIDO --- */
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 50px 8%;
+            gap: 60px;
+        }
+
+        .form-container {
+            flex: 1.2;
+        }
+
+        .form-container h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .form-container p {
+            font-size: 15px;
+            margin-bottom: 35px;
+            color: #444;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .full-row {
+            grid-column: span 2;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input, textarea {
+            background-color: var(--gris-input);
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .btn-enviar {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            border: none;
+            padding: 14px 70px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 25px;
+        }
+
+        /* --- ILUSTRACIÓN --- */
+        .illustration-container {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img-sobre {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            padding: 15px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .social-media {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-media img {
+            height: 24px;
+            width: auto;
+            /* SE ELIMINÓ EL FILTRO QUE LAS PONÍA BLANCAS */
+        }
+
+        .social-media span {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1>Textilería GT</h1>
+            <img src="bandera.png" alt="Bandera de Guatemala" class="img-bandera"> </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Misión</a></li>
+                <li><a href="#">Visión</a></li>
+                <li><a href="#" class="active">Contacto</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn-login">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+            Iniciar sesión
+        </a>
+    </header>
+
+    <main class="main-content">
+        <section class="form-container">
+            <h2>Contáctanos</h2>
+            <p>Para obtener más información o asistencia sobre nuestros productos.</p>
+            
+            <form>
+                <div class="form-grid">
+                    <div class="field-group">
+                        <label>Nombre*</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="field-group">
+                        <label>Apellidos*</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="field-group">
+                        <label>Correo*</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="field-group">
+                        <label>Teléfono*</label>
+                        <input type="tel">
+                    </div>
+                    <div class="field-group full-row">
+                        <label>Motivo de contacto*</label>
+                        <textarea required></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </form>
+        </section>
+
+        <section class="illustration-container">
+            <img src="sobre.png" alt="Contacto" class="img-sobre"> </section>
+    </main>
+
+    <footer>
+        <div>© 2026 Textilería GT. Todos los derechos reservados</div>
+        <div class="social-media">
+            <span>Síguenos en</span>
+            <img src="instagram.png" alt="Instagram"> <img src="facebook.png" alt="Facebook"> <img src="x.png" alt="X"> </div>
+    </footer>
+
+</body>
+</html>
