@@ -99,60 +99,29 @@
             <h1>Diseños que nos representan</h1>
         </div>
         <div class="form-side">
-            <h2>Inicio de sesión</h2>
+            <h2>Recuperación de contraseña</h2>
             
-            <div id="error-message">¡Usuario o contraseña incorrectos!</div>
 
             <form id="loginForm">
                 <div class="input-group">
-                    <label>Usuario*</label>
-                    <input type="text" id="userInput" required placeholder="Usuario">
+                    <label>Ingrese correo para iniciar proceso de recuperacion*</label>
+                    <input type="text" id="userInput" required placeholder="Correo electrónico">
                 </div>
 
-                <div class="input-group">
-                    <label>Contraseña*</label>
-                    <input type="password" id="passInput" required placeholder="Contraseña">
-                </div>
 
-                <button type="submit" class="btn-access">
-                    <i class="fas fa-sign-in-alt"></i> Acceder
+                <a href="login.html" style="text-decoration: none;">
+                <button type="button" class="btn-access">
+                    <i class=""></i> Enviar
                 </button>
+                </a>
 
-                <a href="login2.html" class="forgot-pass">Olvidé mi contraseña</a>
             </form>
 
             <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
         </div>
     </div>
 
-    <script>
-        const USER_VALIDO = "admin";
-        const PASS_VALIDA = "1234";
-
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const user = document.getElementById('userInput').value;
-            const pass = document.getElementById('passInput').value;
-            const errorMsg = document.getElementById('error-message');
-            const inputs = document.querySelectorAll('input');
-
-            if (user === USER_VALIDO && pass === PASS_VALIDA) {
-                // REDIRECCIÓN ACTUALIZADA AL MENÚ PRINCIPAL
-                window.location.href = "menuprincipal.html"; 
-            } else {
-                errorMsg.style.display = "block";
-                inputs.forEach(input => input.classList.add('error-border'));
-                document.getElementById('passInput').value = "";
-            }
-        });
-
-        document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('input', () => {
-                document.getElementById('error-message').style.display = "none";
-                input.classList.remove('error-border');
-            });
-        });
+    
     </script>
 </body>
 </html>
