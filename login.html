@@ -19,7 +19,7 @@
 
         .image-side {
             flex: 1;
-            background-image: url('imagenes/fondo_login.png');
+            background-color: var(--pink-placeholder);
             padding: 40px;
             display: flex;
             align-items: flex-start;
@@ -95,9 +95,9 @@
 
     <div class="login-container">
         <div class="image-side">
-            
             <h1>Diseños que nos representan</h1>
         </div>
+
         <div class="form-side">
             <h2>Inicio de sesión</h2>
             
@@ -118,7 +118,7 @@
                     <i class="fas fa-sign-in-alt"></i> Acceder
                 </button>
 
-                <a href="#" class="forgot-pass">Olvidé mi contraseña</a>
+                <a href="recuperar_password.html" class="forgot-pass">Olvidé mi contraseña</a>
             </form>
 
             <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
@@ -138,7 +138,6 @@
             const inputs = document.querySelectorAll('input');
 
             if (user === USER_VALIDO && pass === PASS_VALIDA) {
-                // REDIRECCIÓN ACTUALIZADA AL MENÚ PRINCIPAL
                 window.location.href = "menuprincipal.html"; 
             } else {
                 errorMsg.style.display = "block";
